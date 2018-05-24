@@ -27,7 +27,7 @@ pipeline {
         steps {
             echo "Construindo a imagem AWS CLI - docker build -t aws_cli:lastet"  
 			//docker.build("renatoadumus/jenkins")
-			def customImage = docker.build("renatoadumus:${env.BUILD_ID}")
+			def customImage = docker.build("renatoadumus",".")
 			//docker ps
 			sh "pwd"
 			sh "ls"
