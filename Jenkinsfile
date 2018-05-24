@@ -14,12 +14,14 @@ pipeline {
         }
     }	
 		
-    stage('Build') { 
+     stage('Build') { 
         steps {
             echo "Construindo a imagem AWS CLI - docker build -t aws_cli:lastet"  
-			//docker.build("renatoadumus/jenkins")
-			docker ps
-            }
+			docker.build("renatoadumus/jenkins")
+			//docker ps
+			sh "pwd"
+			sh "ls"
+         }
     }
 		
 	stage('Run') { 
