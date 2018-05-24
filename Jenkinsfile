@@ -17,7 +17,7 @@ pipeline {
     stage('Build') { 
         steps {
             echo "Construindo a imagem AWS CLI - docker build -t aws_cli:lastet"  
-			app = docker.build("renatoadumus/jenkins")
+			docker.build("renatoadumus/jenkins")
             }
     }
 		
