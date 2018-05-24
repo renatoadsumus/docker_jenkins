@@ -14,19 +14,20 @@ pipeline {
         }
     }	
 	
-	stage('Front-end') {
+	/*stage('Front-end') {
             agent {
                 docker { image 'node:7-alpine' }
             }
             steps {
                 sh 'node --version'
             }
-    }
+    }*/
 		
      stage('Build') { 
         steps {
             echo "Construindo a imagem AWS CLI - docker build -t aws_cli:lastet"  
 			//docker.build("renatoadumus/jenkins")
+			def customImage = docker.build("renatoadumus:${env.BUILD_ID}")
 			//docker ps
 			sh "pwd"
 			sh "ls"
