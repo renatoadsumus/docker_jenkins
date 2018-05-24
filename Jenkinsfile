@@ -7,6 +7,14 @@ pipeline {
     }
     
     stages {
+	
+	stage('Clone Repository') { 
+            steps {
+                echo "Construindo a imagem AWS CLI - docker build -t aws_cli:lastet"                
+            }
+        }
+		
+		
         stage('Build') { 
             steps {
                 echo "Construindo a imagem AWS CLI - docker build -t aws_cli:lastet"                
