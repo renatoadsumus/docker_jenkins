@@ -22,7 +22,8 @@ pipeline {
             echo "Construindo a imagem AWS CLI - docker build -t aws_cli:lastet"  
 			//docker.build("renatoadumus/aws_cli")
 			//def customImage = docker.build("renatoadumus")
-			sh "docker build -t aws_cli:2.0"
+			sh "ls"
+			sh "docker build -t aws_cli:2.0 ."
 			sh "docker images"			
          }
     }
