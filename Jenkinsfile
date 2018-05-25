@@ -6,13 +6,7 @@ pipeline {
         string(defaultValue: "", description: 'Credencias da AWS', name: 'AWS_ACCESS_KEY_ID')
     }
     
- stages {
-	
-	stage('Clone Repository') { 
-        steps {
-            checkout scm              
-        }
-    }	
+ stages {	
 	
 	/*stage('Front-end') {
             agent {
@@ -26,11 +20,10 @@ pipeline {
      stage('Build') { 
         steps {
             echo "Construindo a imagem AWS CLI - docker build -t aws_cli:lastet"  
-			//docker.build("renatoadumus/jenkins")
-			def customImage = docker.build("renatoadumus")
-			//docker ps
-			sh "pwd"
-			sh "ls"
+			//docker.build("renatoadumus/aws_cli")
+			//def customImage = docker.build("renatoadumus")
+			sh "docker build -t aws_cli:2.0"
+			sh "docker images"			
          }
     }
 		
