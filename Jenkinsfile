@@ -34,7 +34,7 @@ pipeline {
 	stage('Create-Deploy-S3') { 
         steps {			
 			echo "Criando Ambiente S3"
-			sh "docker exec aws_container_geru exec ./criar_s3.sh"											
+			//sh "docker exec aws_container_geru exec ./criar_s3.sh"											
 				                
         }			
     }
@@ -42,15 +42,15 @@ pipeline {
 	stage('Create-Elastic-Beanstalk') { 
         steps {			
 			echo "Criando Ambiente Beanstalk"						
-            sh "docker exec aws_container_geru exec ./criar_eb.sh"
+            //sh "docker exec aws_container_geru exec ./criar_eb.sh"
         }			
     }
 
 	stage('Kill-Container') { 
         steps {		
 			echo "Matando container AWS_CLI"
-			sh "docker stop aws_container_geru"
-			sh "docker rm aws_container_geru"
+			//sh "docker stop aws_container_geru"
+			//sh "docker rm aws_container_geru"
 		}
 		
 	}
