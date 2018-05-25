@@ -27,9 +27,15 @@ pipeline {
 	stage('Run') { 
         steps {			
 			echo "Executando Container Docker"
-			sh "docker run -it --name aws_container_geru -e AWS_ACCESS_KEY_ID='${params.AWS_ACCESS_ID}' -e AWS_SECRET_ACCESS_KEY='${params.AWS_SECRET_KEY}' aws_cli:lastet /bin/bash"                
+			echo "flag: ${params.AWS_ACCESS_ID}"
+			echo "flag: ${params.AWS_SECRET_KEY}"
+			echo "${env.BUILD_ID}"
+			/*sh "docker run -it --name aws_container_geru -e AWS_ACCESS_KEY_ID='${params.AWS_ACCESS_ID}' -e AWS_SECRET_ACCESS_KEY='${params.AWS_SECRET_KEY}' aws_cli:lastet /bin/bash"
+			*/			
         }			
     }
+	
+	
 	
 	stage('Create-Deploy-S3') { 
         steps {			
