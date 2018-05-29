@@ -1,20 +1,17 @@
-FROM centos:7
+FROM jenkins/jenkins:lts
 
-MAINTAINER gustavo.goncalves@infoglobo.com.br
+MAINTAINER renatoadsumus@gmail.com
 
-ENV TZ=America/Sao_Paulo
-
-#CONFIGURANDO TIMEZONE, INSTALANDO O CURL, BAIXANDO O REPOSITÓRIO DO GOCD, INSTALANDO O JDK 1.8, INSTALANDO O GO-SERVER, GIT e SVN
-
-RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone \
-&& yum install -y wget \
-&& wget -O /etc/yum.repos.d/jenkins.repo http://pkg.jenkins-ci.org/redhat-stable/jenkins.repo \
-&& rpm --import https://jenkins-ci.org/redhat/jenkins-ci.org.key \
-&& yum install -y java-1.8.0-openjdk \
-&& yum install -y jenkins \
-&& yum -y install initscripts \
-&& yum clean all
-
-RUN yum install -y docker
-
-#CMD ["/bin/bash"]
+apt-get update && \
+apt-get -y install apt-transport-https \
+     ca-certificates \
+     curl \
+     gnupg2 \
+     software-properties-common && \
+curl -fsSL https://download.docker.com/linux/$(. /etc/os-release; echo "$ID")/gpg > /tmp/dkey; apt-key add /tmp/dkey && \
+add-apt-repository \
+   "deb [arch=amd64] https://download.docker.com/linux/$(. /etc/os-release; echo "$ID") \
+   $(lsb_release -cs) \
+   stable" && \
+apt-get update && \
+apt-get -y install docker-ce
