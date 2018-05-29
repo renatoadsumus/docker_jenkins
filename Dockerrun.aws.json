@@ -4,7 +4,7 @@
 	"Name":"renatoadsumus/jenkins:latest"
   },
   "Ports": [
-	{"ContainerPort":"8080"}
+	{"ContainerPort":"80"}
   ],
 
   "Volumes": [
