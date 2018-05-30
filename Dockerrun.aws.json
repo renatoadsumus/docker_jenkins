@@ -9,6 +9,9 @@
 	"Volumes": [{
 		"HostDirectory": "/opt/jenkins",
 		"ContainerDirectory": "/var/jenkins_home/"
+	},{
+		"HostDirectory": "/var/run/docker.sock",
+		"ContainerDirectory": "/var/run/docker.sock"	
 	}],
 
 	"Logging": "/var/log/"
